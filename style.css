@@ -1,0 +1,51 @@
+﻿html {
+    background-color: #fff;
+    height: 100%;
+    margin: 0px;
+    overflow: hidden;
+    padding: 0px;
+    width: 100%;
+}
+body {
+    background-color: #fff;
+    height: 100%;
+    font: 14px/1.8em 'Open Sans', Helvetica, Arial, Helvetica, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    margin: 0px;
+    overflow: hidden;
+    padding: 0px;
+    -webkit-perspective: 0;
+    perspective: 0;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-transform-style: flat;
+    transform-style: flat;
+    -webkit-transform: translateZ(-999999px);
+    width: 100%;
+}
+
+#backdrop, .camera{
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    pointer-events: none;
+    position: absolute;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    width: 100%;
+}
+#backdrop{
+    -webkit-perspective: 300px;
+    perspective: 300px;
+}
+
+.particle{
+    border:solid 3px #000;
+    border-radius:3px;
+    position:absolute;
+}
+.positive{
+    box-shadow:0 0 4px #00f;
+}
+.negative{
+    box-shadow:0 0 4px #f00;
+}
