@@ -1,5 +1,5 @@
 ﻿html {
-    background-color: #fff;
+    background-color: #333;
     height: 100%;
     margin: 0px;
     overflow: hidden;
@@ -7,7 +7,7 @@
     width: 100%;
 }
 body {
-    background-color: #fff;
+    background-color: #333;
     height: 100%;
     font: 14px/1.8em 'Open Sans', Helvetica, Arial, Helvetica, sans-serif;
     -webkit-font-smoothing: antialiased;

@@ -73,19 +73,19 @@
     Particle.prototype.boundaryCollision = function(){
         if (this.position[0] < 0) {
             this.position[0] = 0;
-            this.velocity[0] *= -0.5;
+            this.velocity[0] *= -0.9;
         }
         if (this.position[1] < 0) {
             this.position[1] = 0;
-            this.velocity[1] *= -0.5;
+            this.velocity[1] *= -0.9;
         }
         if (this.position[0] > windowSize[0]) {
             this.position[0] = windowSize[0];
-            this.velocity[0] *= -0.5;
+            this.velocity[0] *= -0.9;
         }
         if (this.position[1] > windowSize[1]) {
             this.position[1] = windowSize[1];
-            this.velocity[1] *= -0.5;
+            this.velocity[1] *= -0.9;
         }
     }
     Particle.prototype.calcForces = function(t){
@@ -96,9 +96,9 @@
             if (fMag > fDist){                                                          //Whoops! They hit
                 fMag -= fDist;
                 vec2.scale(pScratch2,pScratch,1/fMag);
-                vec2.scale(pScratch2,pScratch2,this.resolveCollision(particles[i2]));
                 vec2.sub(this.velocity,this.velocity,pScratch2);
                 vec2.add(particles[i2].velocity,particles[i2].velocity,pScratch2);
+                vec2.scale(this.velocity,this.velocity,this.resolveCollision(particles[i2]));
             }
             fMag = ((this.charge*-1)*particles[i2].charge) / (fDist*fDist);
             if (fMag > 1000) fMag = 1000;
@@ -107,23 +107,23 @@
         }
     }
     Particle.prototype.resolveCollision = function(target){
-        return 0;
+        return 0.9;
     }
     
     function Quark(type,p){
         if(!p){ p = pDefaults; }
         if (type == "up"){
             p.mass = 2.3;
-            p.charge = 67;
+            p.charge = 200;
         }else if (type == "down"){
             p.mass = 4.8;
-            p.charge = -33;
+            p.charge = -100;
         }
         Particle.call(this,p);
     }
     Quark.prototype.resolveCollision = function(target){
         if(target instanceof Quark){ return 0; }
-        else{ return 0.4; }
+        else{ return 0.9; }
     }
     Quark.prototype = new Particle();
     Quark.prototype.constructor = Quark;
