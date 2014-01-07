@@ -294,7 +294,7 @@
     return o;
 }());
 requestAnimationFrame(Alchemy.update);
-for(var i = 0;i < 10;i++){
+for(var i = 0;i < 12;i++){
     new Alchemy.Quark("up");
     new Alchemy.Quark("down");
     new Alchemy.Electron();
